@@ -38,9 +38,9 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
         script: |
-          if docker ps | grep -q product-challenge; then
-            sudo docker stop product-challenge
-            sudo docker rm product-challenge
+          if sudo docker ps | grep -q product-challenge; then
+          sudo docker stop product-challenge
+          sudo docker rm product-challenge
           fi
           sudo docker pull dianalove/product-challenge
           sudo docker run -d --name product-challenge -p 80:8080 dianalove/product-challenge
