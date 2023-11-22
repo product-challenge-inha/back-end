@@ -8,6 +8,6 @@ public class SampleController {
 
     @GetMapping("/test")
     public String testAPI() {
-        return "API Test Successful";
+        return "API Test Successful - after deploy";
     }
 }
