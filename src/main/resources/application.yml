@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://product-challeng-inha.cums3cepciqy.ap-northeast-2.rds.amazonaws.com:3306/product-challenge-inha?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: admin
+    password: product1111
