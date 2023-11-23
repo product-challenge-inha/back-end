@@ -23,7 +23,6 @@ public class SensorLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private Long value;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -33,10 +32,17 @@ public class SensorLog {
     @Enumerated(EnumType.STRING)
     private SensorType sensorType;
 
+    // 알림 전송 여부를 나타내는 필드
+    private boolean notificationSent = false;
+
     @CreationTimestamp
     private Date createdAt;
 
     public enum SensorType {
         TYPE1, TYPE2, TYPE3
+    }
+
+    public boolean isNotificationSent() {
+        return notificationSent;
     }
 }
