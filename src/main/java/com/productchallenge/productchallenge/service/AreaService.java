@@ -79,4 +79,11 @@ public class AreaService {
                 .map(area -> new GetAllAreaRes(area.getId(), area.getName()))
                 .collect(Collectors.toList());
     }
+
+    public List<GetAllAreaRes> searchArea(String keyword) {
+        return areaRepository.findAreaByNameContaining(keyword).stream()
+                .map(area -> new GetAllAreaRes(area.getId(), area.getName()))
+                .collect(Collectors.toList());
+    }
+
 }
