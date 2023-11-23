@@ -61,44 +61,44 @@ public class SensorLogService {
         int randomIndex = (int) (Math.random() * areas.size());
         return areas.get(randomIndex);
     }
-    @Transactional
-    public void generateSensorLogs() {
+    // @Transactional
+    // public void generateSensorLogs() {
 
-        LocalDateTime startDateTime = LocalDateTime.of(2023, 11, 23, 0, 0);
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        Random random = new Random();
+    //     LocalDateTime startDateTime = LocalDateTime.of(2023, 11, 23, 0, 0);
+    //     LocalDateTime currentDateTime = LocalDateTime.now();
+    //     Random random = new Random();
 
-        while(startDateTime.isBefore(currentDateTime)) {
-            Timestamp timestamp = Timestamp.valueOf(startDateTime);
+    //     while(startDateTime.isBefore(currentDateTime)) {
+    //         Timestamp timestamp = Timestamp.valueOf(startDateTime);
 
-            insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE1");
-            insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE2");
-            insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE3");
+    //         insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE1");
+    //         insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE2");
+    //         insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE3");
 
-            startDateTime = startDateTime.plusMinutes(30);
-        }
-    }
-    public void insertSensorLog(Timestamp startTime,long value,String sensorTypeString) {
-        SensorLog sensorLog = new SensorLog();
-        sensorLog.setValue(Long.valueOf(value));
+    //         startDateTime = startDateTime.plusMinutes(30);
+    //     }
+    // }
+    // public void insertSensorLog(Timestamp startTime,long value,String sensorTypeString) {
+    //     SensorLog sensorLog = new SensorLog();
+    //     sensorLog.setValue(Long.valueOf(value));
 
-        Area area = getAreaById(1L);
-        sensorLog.setArea(area);
+    //     Area area = getAreaById(1L);
+    //     sensorLog.setArea(area);
 
-        // SensorType 설정
-        SensorLog.SensorType sensorType = SensorLog.SensorType.valueOf(sensorTypeString);
-        sensorLog.setSensorType(sensorType);
+    //     // SensorType 설정
+    //     SensorLog.SensorType sensorType = SensorLog.SensorType.valueOf(sensorTypeString);
+    //     sensorLog.setSensorType(sensorType);
 
-        // NotificationSent 설정
-        sensorLog.setNotificationSent(false);
+    //     // NotificationSent 설정
+    //     sensorLog.setNotificationSent(false);
 
-        // CreatedAt 설정
-        Timestamp date = startTime;
-        sensorLog.setCreatedAt(date);
+    //     // CreatedAt 설정
+    //     Timestamp date = startTime;
+    //     sensorLog.setCreatedAt(date);
 
-        // 로그 저장
-        sensorLogRepository.save(sensorLog);
-    }
+    //     // 로그 저장
+    //     sensorLogRepository.save(sensorLog);
+    // }
 
     public Area getAreaById(Long id) {
         Optional<Area> area = areaRepository.findById(1L);
