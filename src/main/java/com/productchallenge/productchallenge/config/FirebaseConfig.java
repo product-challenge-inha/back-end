@@ -3,24 +3,53 @@ package com.productchallenge.productchallenge.config;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import java.io.IOException;
+import java.io.InputStream;
 import javax.annotation.PostConstruct;
 import java.io.FileInputStream;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Slf4j
+@Component
 public class FirebaseConfig {
-    @PostConstruct
-    public void initialize() {
-        try {
-            FileInputStream serviceAccount = new FileInputStream("C:\\Users\\USER\\Desktop\\product-challenge\\product-challenge\\src\\main\\resources\\firebase\\product-challenge-inha-firebase-adminsdk-4xg2y-8bd3f25762.json");
 
-            FirebaseOptions options = new FirebaseOptions.Builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .build();
+    @Value("${firebase.key-path}")
+    String fcmKeyPath;
+
+    @PostConstruct
+    public void getFcmCredential(){
+        try {
+            InputStream refreshToken = new ClassPathResource(fcmKeyPath).getInputStream();
+
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(refreshToken)).build();
 
             FirebaseApp.initializeApp(options);
-        } catch (Exception e) {
-            e.printStackTrace();
+            log.info("Fcm Setting Completed");
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
+
 }
+//@Configuration
+//public class FirebaseConfig {
+//    @PostConstruct
+//    public void initialize() {
+//        try {
+//            FileInputStream serviceAccount = new FileInputStream("");
+//
+//            FirebaseOptions options = new FirebaseOptions.Builder()
+//                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+//                    .build();
+//
+//            FirebaseApp.initializeApp(options);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}

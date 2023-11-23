@@ -9,3 +9,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+firebase:
+  project-id: product-challenge-inha
+  key-path: product-challenge-inha-firebase-adminsdk-4xg2y-20f3855911.json

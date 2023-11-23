@@ -1,5 +1,6 @@
 package com.productchallenge.productchallenge.service;
 
+import com.google.firebase.messaging.FirebaseMessagingException;
 import com.productchallenge.productchallenge.domain.Area;
 import com.productchallenge.productchallenge.domain.DeviceToken;
 import com.productchallenge.productchallenge.domain.SensorLog;
