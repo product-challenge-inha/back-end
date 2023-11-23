@@ -30,4 +30,9 @@ public class AreaController {
     public ResponseEntity<List<GetAllAreaRes>> findAllArea() {
         return ResponseEntity.ok(areaService.findAllArea());
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<GetAllAreaRes>> searchArea(@RequestParam String keyword) {
+        return ResponseEntity.ok(areaService.searchArea(keyword));
+    }
 }
