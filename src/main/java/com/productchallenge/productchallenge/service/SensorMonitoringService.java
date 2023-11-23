@@ -9,6 +9,7 @@ import com.productchallenge.productchallenge.repository.SensorRepository;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -50,8 +51,13 @@ public class SensorMonitoringService {
                 // 토큰 불러오는 로직
                 Optional<DeviceToken> deviceTokenOpt = Optional.ofNullable(deviceTokenRepository.findUserFCMToken());
                 if (deviceTokenOpt.isPresent()) {
+
+
+                    LocalDateTime createdAtLDT = sensor.getCreatedAt();
+                    Date createdAtDate = Date.from(createdAtLDT.atZone(ZoneId.systemDefault()).toInstant());
+
                     String deviceFcmToken = deviceTokenOpt.get().getToken();
-                    sendPushNotification(sensor.getArea(), sensor.getCreatedAt(), deviceFcmToken);
+                    sendPushNotification(sensor.getArea(), createdAtDate, deviceFcmToken);
                     sensor.setNotificationSent(true);
                     sensorRepository.save(sensor);
                     break; // 1개만 푸시알람 뜨도록
