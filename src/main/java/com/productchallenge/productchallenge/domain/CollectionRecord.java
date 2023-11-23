@@ -9,10 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Getter
 @Table(name = "collection_records")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CollectionRecord {
 
     @Id
@@ -23,7 +29,12 @@ public class CollectionRecord {
     @JoinColumn(name = "area_id", nullable = false)
     private Area area;
 
-
     @CreationTimestamp
     private Date createdAt;
+
+    public static CollectionRecord newCollectionRecord(Area area){
+        CollectionRecord newCollectionRecord = new CollectionRecord();
+        newCollectionRecord.area = area;
+        return newCollectionRecord;
+    }
 }
