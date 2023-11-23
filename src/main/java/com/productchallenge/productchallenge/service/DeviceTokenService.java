@@ -17,6 +17,7 @@ public class DeviceTokenService {
     @Transactional
     public void saveToken(String token) {
         DeviceToken deviceToken = new DeviceToken();
+
         deviceToken.setToken(token);
         deviceTokenRepository.save(deviceToken);
     }
