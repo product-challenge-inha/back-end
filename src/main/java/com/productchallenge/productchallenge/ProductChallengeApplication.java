@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class ProductChallengeApplication {
 
 	public static void main(String[] args) {
-		System.out.println("실행 TEST");
+		System.out.println("실행을 무사히 시작합니다.");
 		SpringApplication.run(ProductChallengeApplication.class, args);
 	}
 
