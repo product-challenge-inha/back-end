@@ -11,5 +11,7 @@ public interface SensorRepository extends JpaRepository<SensorLog, Long> {
     List<SensorLog> findSensorLogsByAreaIdAndSensorTypeAndCreatedAtBetweenOrderByCreatedAtAsc(Long area_id,
                                                                                               SensorType sensorType,
                                                                                               LocalDateTime startDate,
-                                                                                              LocalDateTime endDate);
+                                                                                                LocalDateTime endDate);
+
+    List<SensorLog> findAllByOrderByCreatedAtDesc();
 }

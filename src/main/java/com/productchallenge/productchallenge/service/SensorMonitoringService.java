@@ -1,16 +1,14 @@
 package com.productchallenge.productchallenge.service;
 
-import com.google.firebase.messaging.FirebaseMessagingException;
 import com.productchallenge.productchallenge.domain.Area;
 import com.productchallenge.productchallenge.domain.DeviceToken;
 import com.productchallenge.productchallenge.domain.SensorLog;
 import com.productchallenge.productchallenge.repository.DeviceTokenRepository;
 import com.productchallenge.productchallenge.repository.SensorRepository;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -48,7 +46,7 @@ public class SensorMonitoringService {
         }
     }
 
-    private void sendPushNotification(Area area, Date createdAt,String deviceFcmToken) {
+    private void sendPushNotification(Area area, LocalDateTime createdAt, String deviceFcmToken) {
         // 날짜 포맷팅
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formattedDate = dateFormat.format(createdAt);
