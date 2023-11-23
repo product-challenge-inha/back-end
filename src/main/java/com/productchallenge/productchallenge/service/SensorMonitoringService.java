@@ -30,11 +30,11 @@ public class SensorMonitoringService {
         this.deviceTokenRepository = deviceTokenRepository;
     }
 
-    @Scheduled(fixedRate = 60000) // 예: 매시간마다 체크
+    @Scheduled(fixedRate = 60000) // 예: 분마다체크
     public void checkSensorDataAndSendAlerts() {
         List<SensorLog> sensors = sensorRepository.findAllByOrderByCreatedAtDesc();
         for (SensorLog sensor : sensors) {
-            if (sensor.getValue() > THRESHOLD && !sensor.isNotificationSent()) {
+            if (sensor.getValue() > THRESHOLD) { // && !sensor.isNotificationSent()
                 // 토큰 불러오는 로직
                 Optional<DeviceToken> deviceTokenOpt = Optional.ofNullable(deviceTokenRepository.findUserFCMToken());
                 if (deviceTokenOpt.isPresent()) {

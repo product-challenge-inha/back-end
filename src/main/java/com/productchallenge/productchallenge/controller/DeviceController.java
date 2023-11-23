@@ -1,6 +1,7 @@
 package com.productchallenge.productchallenge.controller;
 
 import com.productchallenge.productchallenge.service.DeviceTokenService;
+import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,8 @@ public class DeviceController {
     }
 
     @PostMapping("/registerToken")
-    public ResponseEntity<?> registerToken(@RequestBody String token) {
+    public ResponseEntity<?> registerToken(@RequestBody Map<String, String> requestBody) {
+        String token = requestBody.get("token");
         deviceTokenService.saveToken(token);
         return ResponseEntity.ok().build();
     }
