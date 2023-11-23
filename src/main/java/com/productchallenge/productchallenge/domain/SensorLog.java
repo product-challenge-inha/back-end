@@ -33,6 +33,9 @@ public class SensorLog {
     @Enumerated(EnumType.STRING)
     private SensorType sensorType;
 
+    // 알림 전송 여부를 나타내는 필드
+    private boolean notificationSent = false;
+
     @CreationTimestamp
     private Date createdAt;
 
