@@ -1,6 +1,6 @@
 package com.productchallenge.productchallenge.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,7 +36,7 @@ public class SensorLog {
     private boolean notificationSent = false;
 
     @CreationTimestamp
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     public enum SensorType {
         TYPE1, TYPE2, TYPE3
