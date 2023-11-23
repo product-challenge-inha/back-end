@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,15 +20,13 @@ public class Area {
 
     private String name;
 
-    @OneToMany(mappedBy = "createdAt", cascade = CascadeType.ALL)
-    private List<CollectionRecord> collectionRecords = new ArrayList<>();
-
     @CreationTimestamp
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     public static Area newArea(String name){
         Area area = new Area();
         area.name = name;
         return area;
     }
+
 }

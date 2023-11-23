@@ -7,16 +7,21 @@ import com.productchallenge.productchallenge.repository.CollectionRecordReposito
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class CollectionRecordService {
     private final CollectionRecordRepository collectionRecordRepository;
 
-    public Date RecordCollection(Area area){
+    public LocalDateTime recordCollection(Area area){
         CollectionRecord newCollectionRecord = CollectionRecord.newCollectionRecord(area);
         collectionRecordRepository.save(newCollectionRecord);
         return newCollectionRecord.getCreatedAt();
+    }
+
+    public List<LocalDateTime> findCollectionRecordTime(Area area){
+        return collectionRecordRepository.findAllCreateAtByArea(area);
     }
 }

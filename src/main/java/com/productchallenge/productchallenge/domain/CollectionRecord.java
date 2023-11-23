@@ -1,7 +1,7 @@
 package com.productchallenge.productchallenge.domain;
 
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +30,7 @@ public class CollectionRecord {
     private Area area;
 
     @CreationTimestamp
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     public static CollectionRecord newCollectionRecord(Area area){
         CollectionRecord newCollectionRecord = new CollectionRecord();
