@@ -23,7 +23,6 @@ public class CollectionRecord {
     @JoinColumn(name = "area_id", nullable = false)
     private Area area;
 
-
     @CreationTimestamp
     private Date createdAt;
 }

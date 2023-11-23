@@ -23,7 +23,6 @@ public class SensorLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private Long value;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,5 +40,9 @@ public class SensorLog {
 
     public enum SensorType {
         TYPE1, TYPE2, TYPE3
+    }
+
+    public boolean isNotificationSent() {
+        return notificationSent;
     }
 }
