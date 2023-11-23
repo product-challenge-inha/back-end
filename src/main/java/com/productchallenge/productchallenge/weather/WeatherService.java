@@ -29,7 +29,7 @@ public class WeatherService {
         Map<String, String> weatherData = new HashMap<>();
         weatherData.put("강우", "0");
         weatherData.put("습도", "44");
-        weatherData.put("온도", "11.5");
+        weatherData.put("기온", "11.5");
 
         return weatherData;
     }
