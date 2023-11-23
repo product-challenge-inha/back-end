@@ -59,9 +59,7 @@ public class SensorMonitoringService {
                     String deviceFcmToken = deviceTokenOpt.get().getToken();
                     sendPushNotification(sensor.getArea(), createdAtDate, deviceFcmToken);
                     sensor.setNotificationSent(true);
-                    sensorRepository.save(sensor);
-                    break; // 1개만 푸시알람 뜨도록
-                }
+                    sensorRepository.save(sensor);}
             }
         }
     }
