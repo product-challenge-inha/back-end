@@ -85,41 +85,41 @@ public class SensorMonitoringService {
         }
     }
 
-    @Transactional
-    @Scheduled(fixedRate = 60000*30)
-    public void 분30마다_체크해서_데이터보내기() {
-
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        Random random = new Random();
-
-        Timestamp timestamp = Timestamp.valueOf(currentDateTime);
-
-        insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE1");
-        insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE2");
-        insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE3");
-
-    }
-    public void insertSensorLog(Timestamp startTime,long value,String sensorTypeString) {
-        SensorLog sensorLog = new SensorLog();
-        sensorLog.setValue(Long.valueOf(value));
-
-        Area area = getAreaById(1L);
-        sensorLog.setArea(area);
-
-        // SensorType 설정
-        SensorLog.SensorType sensorType = SensorLog.SensorType.valueOf(sensorTypeString);
-        sensorLog.setSensorType(sensorType);
-
-        // NotificationSent 설정
-        sensorLog.setNotificationSent(false);
-
-        // CreatedAt 설정
-        Timestamp date = startTime;
-        sensorLog.setCreatedAt(date);
-
-        // 로그 저장
-        sensorRepository.save(sensorLog);
-    }
+//    @Transactional
+//    @Scheduled(fixedRate = 60000*30)
+//    public void 분30마다_체크해서_데이터보내기() {
+//
+//        LocalDateTime currentDateTime = LocalDateTime.now();
+//        Random random = new Random();
+//
+//        Timestamp timestamp = Timestamp.valueOf(currentDateTime);
+//
+//        insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE1");
+//        insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE2");
+//        insertSensorLog(timestamp, random.nextInt(324) + 700, "TYPE3");
+//
+//    }
+//    public void insertSensorLog(Timestamp startTime,long value,String sensorTypeString) {
+//        SensorLog sensorLog = new SensorLog();
+//        sensorLog.setValue(Long.valueOf(value));
+//
+//        Area area = getAreaById(1L);
+//        sensorLog.setArea(area);
+//
+//        // SensorType 설정
+//        SensorLog.SensorType sensorType = SensorLog.SensorType.valueOf(sensorTypeString);
+//        sensorLog.setSensorType(sensorType);
+//
+//        // NotificationSent 설정
+//        sensorLog.setNotificationSent(false);
+//
+//        // CreatedAt 설정
+//        Timestamp date = startTime;
+//        sensorLog.setCreatedAt(date);
+//
+//        // 로그 저장
+//        sensorRepository.save(sensorLog);
+//    }
 
     public Area getAreaById(Long id) {
         Optional<Area> area = areaRepository.findById(1L);
