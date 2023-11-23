@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
+@Data
 @Entity
 @Table(name = "sensor_logs")
 public class SensorLog {
@@ -20,6 +22,9 @@ public class SensorLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+    private Long value;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "area_id", nullable = false)
