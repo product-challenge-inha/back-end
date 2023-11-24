@@ -4,6 +4,7 @@
 
 ### 📱 시연 영상
 ![KakaoTalk_20231123_165735273](https://github.com/product-challenge-inha/back-end/assets/72601276/226456b4-58cb-472a-9e8b-1abe3a2db387)
+<img width="299" alt="image" src="https://github.com/product-challenge-inha/back-end/assets/78026977/148becfb-adc7-45db-891d-7378b52cee6f">
 
 <br>
 <br>
