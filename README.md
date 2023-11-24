@@ -1,26 +1,11 @@
 # ☀️ 티파니엔트로피
 ## 🎁 2023 실험실 창업 팀빌딩 경진대회 (원데이 해커톤)
-### 주제: 담배꽁초의 열분해를 통한 신재생 및 기초 에너지 생산 시스템
+### 주제: 담배꽁초의 열분해를 통한 신재생 및 기초 에너지 생산 모니터링 애플리케이션
+spring back-end
 
 ### 📱 시연 영상
 ![KakaoTalk_20231123_165735273](https://github.com/product-challenge-inha/back-end/assets/72601276/226456b4-58cb-472a-9e8b-1abe3a2db387)
 <img width="299" alt="image" src="https://github.com/product-challenge-inha/back-end/assets/78026977/148becfb-adc7-45db-891d-7378b52cee6f">
-# ☀️ 티파니엔트로피
-## 🎁 2023 실험실 창업 팀빌딩 경진대회 (원데이 해커톤)
-### 주제: 담배꽁초의 열분해를 통한 신재생 및 기초 에너지 생산 모니터링 애플리케이션
-spring back-end
-<table>
-  <tr>
-    <td>
-      <p>시연 영상</p>
-      <img src="https://github.com/product-challenge-inha/back-end/assets/72601276/226456b4-58cb-472a-9e8b-1abe3a2db387" alt="시연 영상" style="width: 300px;"/>
-    </td>
-    <td>
-      <p>유해물질 초과시 알림</p>
-      <img src="https://github.com/product-challenge-inha/back-end/assets/72601276/6d618e40-1fac-48fc-8c7b-5eb601d74a81" alt="유해물질 초과시 알림" style="width: 300px;"/>
-    </td>
-  </tr>
-</table>
 
 
 
